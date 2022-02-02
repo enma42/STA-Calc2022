@@ -1,0 +1,75 @@
+<script>
+myTotal = 0;
+    myInput = "";	
+    myCalc = "+";	
+    myFlg = 1;	
+         
+    function su(myData){
+    myFlg = 0;
+    myInput += myData;
+    document.myForm.myLine.value = myInput;	
+    }	
+         
+    function ki(myData){	
+    if (myFlg==0){
+    myFlg = 1;	
+    myWork = myTotal + myCalc + myInput;	
+    myTotal = eval(myWork);	
+    myInput = "";	
+    document.myForm.myLine.value = myTotal;	
+    }	
+    if (myData == "="){
+    myTotal = 0;	
+    myCalc = "+";	
+    }else{	
+    myCalc = myData;	
+    }	
+        }	
+         
+    function DE(){	
+    myTotal = 0;
+    myCalc = "+";	
+    myInput = "";	
+    document.myForm.myLine.value = myTotal;	
+    }
+</script>
+<style>
+td{
+    width: 10px;
+    height: 10px;
+}
+</style>	
+         
+    <form name="myForm">
+        <table border="1" style="border-collapse:collapse">
+    <tr>
+    <td colspan="3"><input type="text" size="12" name="myLine" value="0"></td>
+    <td><input type="button" value="AC" onclick="DE()"></td>
+    </tr>
+    <tr>
+    <td><input type="button" value=" ７ " onclick="su(7)"></td>
+    <td><input type="button" value=" ８ " onclick="su(8)"></td>
+    <td><input type="button" value=" ９ " onclick="su(9)"></td>
+    <td align="center"><input type="button" value="÷" onclick="ki('/')"></td>
+    </tr>
+    <tr>
+    <td><input type="button" value=" ４ " onclick="su(4)"></td>
+    <td><input type="button" value=" ５ " onclick="su(5)"></td>
+    <td><input type="button" value=" ６ " onclick="su(6)"></td>
+    <td align="center"><input type="button" value="×" onclick="ki('*')"></td>
+    </tr>
+    <tr>
+    <td><input type="button" value=" １ " onclick="su(1)"></td>
+    <td><input type="button" value=" ２ " onclick="su(2)"></td>
+    <td><input type="button" value=" ３ " onclick="su(3)"></td>
+    <td><input type="button" value="－" onclick="ki('-')"></td>
+    </tr>
+    <tr>
+    <td><input type="button" value=" ０ " onclick="su(0)"></td>
+    <td><input type="button" value=" ・ " onclick="su('.')"></td>
+    <td><input type="button" value=" ＋ " onclick="ki('+')"></td>
+    <td><input type="button" value="＝" onclick="ki('=')"></td>
+    </tr>
+    </table>
+    </form>
+    
